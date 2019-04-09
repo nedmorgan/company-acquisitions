@@ -10,7 +10,14 @@ const companyController = {
         })
     },
     create: (req, res) => {
-        res.send('Action to create a new company')
+        const newCompany = new Company(req.body.company)
+        newCompany
+            .save()
+            .then((company) => {
+                res.json(company)
+            }).catch((err) => {
+                console.log('Error creating a new company: ', err)
+            })
     },
     show: (req, res) => {
         Company.findById(req.params.companyId).then((company) => {
@@ -20,10 +27,22 @@ const companyController = {
         })
     },
     update: (req, res) => {
-        res.send('Action to update a company')
+        const company = req.params.companyId
+        const updatedCompany = req.body
+        Company.findByIdAndUpdate(company, updatedCompany, {
+            new: true
+        }).then(company => {
+            res.json(company)
+        }).catch((err) => {
+            console.log('Error updating company: ', err)
+        })
     },
     delete: (req, res) => {
-        res.send('Action to delete a company')
+        Company.findByIdAndRemove(req.params.companyId).then((company) => {
+            res.json(company)
+        }).catch((err) => {
+            console.log('Error removing a company: ', err)
+        })
     }
 }
 

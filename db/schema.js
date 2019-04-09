@@ -3,15 +3,16 @@ const Schema = mongoose.Schema
 
 const ContactSchema = new Schema({
   name: String,
-  phoneNumber: String
+  phoneNumber: String,
+  title: String,
 })
 
 const CompanySchema = new Schema({
-  title: String,
+  name: String,
   status: String,
   information: String,
   financialPerformance: String,
-  contacts: [ContactSchema]
+  contacts: [ContactSchema],
 })
 
 module.exports = {

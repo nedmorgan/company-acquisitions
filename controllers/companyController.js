@@ -1,5 +1,4 @@
 const Company = require('../models/Company')
-const Contact = require('../models/Contact')
 
 const companyController = {
     index: (req, res) => {

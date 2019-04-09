@@ -9,7 +9,7 @@ const companyController = {
         })
     },
     create: (req, res) => {
-        const newCompany = new Company(req.body.company)
+        const newCompany = new Company(req.body)
         newCompany
             .save()
             .then((company) => {

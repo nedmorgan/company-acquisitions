@@ -1,10 +1,10 @@
-const mongoose = require("./connection");
-const Schema = mongoose.Schema;
+const mongoose = require("./connection")
+const Schema = mongoose.Schema
 
 const ContactSchema = new Schema({
   name: String,
   phoneNumber: String
-});
+})
 
 const CompanySchema = new Schema({
   title: String,
@@ -12,9 +12,9 @@ const CompanySchema = new Schema({
   information: String,
   financialPerformance: String,
   contacts: [ContactSchema]
-});
+})
 
 module.exports = {
   ContactSchema: ContactSchema,
   CompanySchema: CompanySchema
-};
+}

@@ -1,0 +1,6 @@
+require("dotenv").config()
+const mongoose = require("mongoose")
+mongoose.connect(process.env.MONGODB_URI)
+
+const Contact = require("../models/Contact")
+const Company = require("../models/Company")

@@ -1,12 +1,22 @@
 const express = require("express");
+const logger = require("morgan");
 const app = express();
 
+app.use(logger("dev"));
+app.use(
+  express.urlencoded({
+    extended: true
+  })
+);
+
 app.use(express.json());
-app.get("/", (req, res) => {
-  res.send("Hello world!");
+
+app.get("/*", (req, res) => {
+  res.sendFile(`${__dirname}/client/build/index.html`);
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
+
 app.listen(PORT, () => {
   console.log(`Houston, we have liftoff on port ${PORT}`);
 });

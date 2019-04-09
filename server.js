@@ -1,6 +1,7 @@
 const express = require("express")
 const logger = require("morgan")
 const app = express()
+const routes = require('./routes/index')
 
 app.use(logger("dev"))
 app.use(
@@ -10,6 +11,8 @@ app.use(
 )
 
 app.use(express.json())
+
+app.use('/api/v1', routes)
 
 app.use(express.static(`${__dirname}/client/build`))
 

@@ -7,7 +7,7 @@ import axios from 'axios'
 export default class Companies extends Component {
 
     state = {
-        company: []
+        companies: []
     }
 
     componentDidMount() {
@@ -16,15 +16,15 @@ export default class Companies extends Component {
 
     getCompanyData = () => {
         axios.get('api/v1/companies').then(response => {
-            console.log(response.data)
-            this.setState({ company: response.data })
+            this.setState({ companies: response.data })
         })
     }
 
     render() {
         return (
             <CompaniesContainer>
-                <h1>Test</h1>
+                <Company
+                    companies={this.state.companies} />
             </CompaniesContainer>
         )
     }

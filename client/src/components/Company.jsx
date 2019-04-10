@@ -6,7 +6,9 @@ import Contact from './Contact'
 export default class Company extends Component {
     state = {
         company: {},
-        contacts: []
+        contacts: [],
+        toggleCompanyEditForm: false,
+        toggleContactEditForm: false,
     }
 
     componentDidMount() {
@@ -29,7 +31,8 @@ export default class Company extends Component {
                 <p><u><b>Company Profile:</b></u> {this.state.company.information}</p>
                 <Contact
                     contacts={this.state.contacts}
-                    company={this.state.company} />
+                    company={this.state.company}
+                    toggleContactEditForm={this.state.toggleContactEditForm} />
             </CompanyContainer >
         )
     }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { HomeContainer } from './styled_components/HomeStyles'
+import { Link } from 'react-router-dom'
 
 export default class Home extends Component {
     render() {
@@ -7,7 +8,7 @@ export default class Home extends Component {
             <HomeContainer>
                 <div className="container">
                     <h1>Business Acquisition Information</h1>
-                    <button type="button" href="/companies/" className="btn btn-light">Companies</button>
+                    <Link to="/companies" className="button">Companies</Link>
                 </div>
             </HomeContainer>
         )

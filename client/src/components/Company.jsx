@@ -7,8 +7,9 @@ export default class Company extends Component {
     state = {
         company: {},
         contacts: [],
-        toggleCompanyEditForm: false,
-        toggleContactEditForm: false,
+        displayCompanyEditForm: false,
+        displayContactEditForm: false,
+        edirectToCompanies: false,
     }
 
     componentDidMount() {
@@ -22,17 +23,47 @@ export default class Company extends Component {
         })
     }
 
-    toggleCompanyEditForm = () => {
+    toggleCompanyEditForm = (e) => {
+        e.preventDefault()
         this.setState((state, props) => {
-            return ({ toggleCompanyEditForm: !state.toggleCompanyEditForm })
+            return ({ displayCompanyEditForm: !state.displayCompanyEditForm })
         })
+    }
+
+    toggleContactEditForm = () => {
+        this.setState((state, props) => {
+            return ({ displayContactEditForm: !state.displayContactEditForm })
+        })
+    }
+
+    handleChange = (e) => {
+        const company = { ...this.state.company }
+        company[e.target.name] = e.target.value
+        this.setState({ company })
+    }
+
+    removeContact = (e, id) => {
+        e.preventDefault()
+        const companyId = this.props.match.params.companyId
+        axios.delete(`/api/v1/companies/${companyId}/contacts/${id}`)
+            .then(res => {
+                this.getCompanyData()
+            })
+    }
+
+    removeCompany = () => {
+        const companyId = this.props.match.params.companyId
+        axios.delete(`/api/v1/companies/${companyId}`)
+            .then(res => {
+                this.setState({ company: res.data, redirectToCompanies: true })
+            })
     }
 
     render() {
         return (
             <CompanyContainer>
                 {
-                    this.state.toggleCompanyEditForm ?
+                    this.state.displayCompanyEditForm ?
                         <form>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Name:</label>
@@ -87,9 +118,12 @@ export default class Company extends Component {
                             <Contact
                                 contacts={this.state.contacts}
                                 company={this.state.company}
-                                toggleContactEditForm={this.state.toggleContactEditForm} />
+                                displayContactEditForm={this.state.displayContactEditForm}
+                                toggleContactEditForm={this.toggleContactEditForm}
+                                removeContact={this.removeContact} />
                         </div>
                 }
+                <button type="button" class="btn btn-danger" onClick={this.removeCompany}>Remove Company</button>
             </CompanyContainer >
         )
     }

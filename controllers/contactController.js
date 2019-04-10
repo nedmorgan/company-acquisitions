@@ -39,7 +39,7 @@ const contactController = {
             .then(company => {
                 company.contacts.map((contact, index) => {
                     if (contact._id.toString() === req.params.contactId) {
-                        let newArray = company.contacts.splice(index, 1)
+                        company.contacts.splice(index, 1)
                         company.contacts.push(updatedContact)
                         company.save()
                         res.json(company)

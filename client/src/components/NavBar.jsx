@@ -1,11 +1,19 @@
 import React, { Component } from 'react'
+import { NavContainer } from './styled_components/NavBarStyles'
 
 export default class NavBar extends Component {
-  render() {
-    return (
-      <div>
-        
-      </div>
-    )
-  }
+    render() {
+        return (
+            <NavContainer>
+                <ul className="nav nav-tabs">
+                    <li className="nav-item">
+                        <a className="nav-link active" href="#">Home</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="#">Companies</a>
+                    </li>
+                </ul>
+            </NavContainer>
+        )
+    }
 }

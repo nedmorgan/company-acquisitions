@@ -34,7 +34,18 @@ const contactController = {
             })
     },
     update: (req, res) => {
-        res.send('Action to update a contact')
+        const updatedContact = req.body
+        const contact = req.params.contactId
+        Company.findById(req.params.companyId)
+            .then(company => {
+                Contact.findByIdAndUpdate(contact, updatedContact, {
+                    new: true
+                }).then((contact) => {
+                    res.json(contact)
+                })
+            }).catch((err) => {
+                console.log("Error updating contact: ", err)
+            })
     },
     delete: (req, res) => {
         Company.findById(req.params.companyId)

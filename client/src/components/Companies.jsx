@@ -71,6 +71,9 @@ export default class Companies extends Component {
                                     type="text"
                                     class="form-control"
                                     id="exampleInputEmail1"
+                                    name="name"
+                                    onChange={this.handleChange}
+                                    value={this.state.company.name}
                                     placeholder="Company Name"></input>
                             </div>
                             <div class="form-group">
@@ -79,7 +82,10 @@ export default class Companies extends Component {
                                     type="text"
                                     class="form-control"
                                     id="exampleInputPassword1"
-                                    placeholder="Company Status"></input>
+                                    placeholder="Company Status"
+                                    name="status"
+                                    onChange={this.handleChange}
+                                    value={this.state.company.status}></input>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Financial Performance:</label>
@@ -87,14 +93,20 @@ export default class Companies extends Component {
                                     type="text"
                                     class="form-control"
                                     id="exampleInputPassword1"
-                                    placeholder="Financial Performance"></input>
+                                    placeholder="Financial Performance"
+                                    name="financialPerformance"
+                                    onChange={this.handleChange}
+                                    value={this.state.company.financialPerformance}></input>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Information:</label>
                                 <textarea
                                     class="form-control"
                                     id="exampleFormControlTextarea1"
-                                    rows="3"></textarea>
+                                    rows="3"
+                                    name="information"
+                                    onChange={this.handleChange}
+                                    value={this.state.company.information}></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

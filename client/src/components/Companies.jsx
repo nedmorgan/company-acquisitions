@@ -64,52 +64,53 @@ export default class Companies extends Component {
                 <h1>Companies<a onClick={this.toggleCompanyForm}><i class="fas fa-plus"></i></a></h1>
                 {
                     this.state.displayCompanyForm ?
-                        <form>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Name:</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="exampleInputEmail1"
-                                    name="name"
-                                    onChange={this.handleChange}
-                                    value={this.state.company.name}
-                                    placeholder="Company Name"></input>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Status:</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="exampleInputPassword1"
-                                    placeholder="Company Status"
-                                    name="status"
-                                    onChange={this.handleChange}
-                                    value={this.state.company.status}></input>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Financial Performance:</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="exampleInputPassword1"
-                                    placeholder="Financial Performance"
-                                    name="financialPerformance"
-                                    onChange={this.handleChange}
-                                    value={this.state.company.financialPerformance}></input>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Information:</label>
-                                <textarea
-                                    class="form-control"
-                                    id="exampleFormControlTextarea1"
-                                    rows="3"
-                                    name="information"
-                                    onChange={this.handleChange}
-                                    value={this.state.company.information}></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
+                        <div>
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Name:</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="exampleInputEmail1"
+                                        name="name"
+                                        onChange={this.handleChange}
+                                        value={this.state.company.name}
+                                        placeholder="Company Name"></input>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Status:</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="exampleInputPassword1"
+                                        placeholder="Company Status"
+                                        name="status"
+                                        onChange={this.handleChange}
+                                        value={this.state.company.status}></input>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Financial Performance:</label>
+                                    <textarea
+                                        class="form-control"
+                                        id="exampleFormControlTextarea1"
+                                        rows="3"
+                                        name="financialPerformance"
+                                        onChange={this.handleChange}
+                                        value={this.state.company.financialPerformance}></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Information:</label>
+                                    <textarea
+                                        class="form-control"
+                                        id="exampleFormControlTextarea1"
+                                        rows="3"
+                                        name="information"
+                                        onChange={this.handleChange}
+                                        value={this.state.company.information}></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
                         :
                         <div>
                             {

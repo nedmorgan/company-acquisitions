@@ -11,11 +11,11 @@ export default class Companies extends Component {
     }
 
     componentDidMount() {
-        this.getCompanyData()
+        this.getCompaniesData()
     }
 
-    getCompanyData = () => {
-        axios.get('api/v1/companies').then(response => {
+    getCompaniesData = () => {
+        axios.get('/api/v1/companies').then(response => {
             this.setState({ companies: response.data })
         })
     }
@@ -23,8 +23,15 @@ export default class Companies extends Component {
     render() {
         return (
             <CompaniesContainer>
-                <Company
-                    companies={this.state.companies} />
+                {
+                    this.state.companies.map(company => {
+                        return (
+                            <div>
+                                <h1><a href={`companies/${company._id}`}>{company.name}</a></h1>
+                            </div>
+                        )
+                    })
+                }
             </CompaniesContainer>
         )
     }

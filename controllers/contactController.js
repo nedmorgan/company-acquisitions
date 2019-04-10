@@ -5,7 +5,7 @@ const contactController = {
     index: (req, res) => {
         Company.findById(req.params.companyId)
             .then(company => {
-                res.json(company.contacts)
+                res.json(company)
             })
             .catch((err) => {
                 console.log("Error retreiving contacts: ", err)

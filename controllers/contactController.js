@@ -28,10 +28,7 @@ const contactController = {
         Company.findById(req.params.companyId)
             .then(company => {
                 const specificContact = company.contacts.filter(contact => contact._id.toString() === req.params.contactId)
-                company.save()
-                    .then((company) => {
-                        res.json(company)
-                    })
+                res.json(specificContact)
             }).catch((err) => {
                 console.log("Error finding specific contact: ", err)
             })
@@ -40,9 +37,14 @@ const contactController = {
         const updatedContact = req.body
         Company.findById(req.params.companyId)
             .then(company => {
-                let specificContact = company.contacts.filter(contact => contact._id.toString() === req.params.contactId)
-                specificContact = updatedContact
-                res.json(specificContact)
+                company.contacts.map((contact, index) => {
+                    if (contact._id.toString() === req.params.contactId) {
+                        let newArray = company.contacts.splice(index, 1)
+                        company.contacts.push(updatedContact)
+                        company.save()
+                        res.json(company)
+                    }
+                })
             }).catch((err) => {
                 console.log("Error updating a contact: ", err)
             })

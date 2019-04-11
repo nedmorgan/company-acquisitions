@@ -87,6 +87,7 @@ export default class Company extends Component {
                     this.state.displayCompanyEditForm ?
                         <div className="form-container">
                             <form className="edit-company-form" onSubmit={this.updateCompany}>
+                                <a onClick={this.toggleCompanyEditForm}><i class="back-icon fas fa-arrow-left"></i></a>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Name:</label>
                                     <input

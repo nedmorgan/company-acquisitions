@@ -44,8 +44,13 @@ h2 {
     margin: 0 auto;
 }
 
-.trash-icon {
+.trash-icon, 
+.back-icon {
     font-size: 2vw;
+}
+
+.back-icon {
+    margin-bottom: 1vw;
 }
 
 @media (max-width: 768px) {

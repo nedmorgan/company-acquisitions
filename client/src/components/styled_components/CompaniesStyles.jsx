@@ -69,6 +69,12 @@ label {
     color: whitesmoke;
 }
 
+.back-icon {
+    color: whitesmoke;
+    font-size: 2vw;
+    margin-bottom: 1vw;
+}
+
 @media (max-width: 768px) {
     h1 {
         font-size: 2em;

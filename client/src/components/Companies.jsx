@@ -64,6 +64,7 @@ export default class Companies extends Component {
                     this.state.displayCompanyForm ?
                         <div className="form-container">
                             <form className="new-company-form" onSubmit={this.handleNewCompany}>
+                                <a onClick={this.toggleCompanyForm}><i class="back-icon fas fa-arrow-left"></i></a>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Name:</label>
                                     <input

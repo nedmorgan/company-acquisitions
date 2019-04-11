@@ -37,6 +37,15 @@ export default class Company extends Component {
         })
     }
 
+    updateCompany = (e) => {
+        let payload = this.state.company
+        e.preventDefault()
+        axios.put(`/api/v1/companies/${this.state.company._id}`, payload)
+            .then(res => {
+                this.setState({ company: res.data, displayCompanyEditForm: false })
+            })
+    }
+
     handleChange = (e) => {
         const company = { ...this.state.company }
         company[e.target.name] = e.target.value
@@ -68,7 +77,7 @@ export default class Company extends Component {
             <CompanyContainer>
                 {
                     this.state.displayCompanyEditForm ?
-                        <form>
+                        <form onSubmit={this.updateCompany}>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Name:</label>
                                 <input

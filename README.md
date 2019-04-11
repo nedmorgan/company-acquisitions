@@ -10,7 +10,7 @@ Through this portal a user is able to view specific information about a company.
 * The user is able to view, add, edit, and delete a contact in a certain company they are interested in connecting with.
 * The data is stored for later use for the user.
 
-##Technologies:
+## Technologies:
 
 * Languages - Javascript, HTML, and CSS
 * Front-End Frameworks - Bootstrap

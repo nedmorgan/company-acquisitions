@@ -12,6 +12,7 @@ export default class Company extends Component {
         displayContactAddForm: false,
         redirectToCompanies: false,
         isUpdate: false,
+        value: ''
     }
 
     componentDidMount() {
@@ -48,13 +49,15 @@ export default class Company extends Component {
         })
     }
 
-    toggleContactAddForm = () => {
+    toggleContactAddForm = (e) => {
+        e.preventDefault()
         this.setState((state, props) => {
             return ({ displayContactAddForm: !state.displayContactAddForm })
         })
     }
 
-    toggleContactEditForm = () => {
+    toggleContactEditForm = (e) => {
+        e.preventDefault()
         this.setState((state, props) => {
             return ({ displayContactAddForm: !state.displayContactAddForm, isUpdate: !state.isUpdate })
         })
@@ -154,7 +157,8 @@ export default class Company extends Component {
                                 toggleContactEditForm={this.toggleContactEditForm}
                                 removeContact={this.removeContact}
                                 createContact={this.createContact}
-                                isUpdate={this.state.isUpdate} />
+                                isUpdate={this.state.isUpdate}
+                                value={this.state.value} />
                         </div>
                 }
                 <div className="remove-container">

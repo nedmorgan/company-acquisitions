@@ -82,21 +82,23 @@ export default class Contact extends Component {
                         :
                         <div>
                             <h2>Company Contact Information <a onClick={(e) => this.props.toggleContactAddForm(e)}><i class="fas fa-plus"></i></a></h2>
-                            {
-                                this.props.contacts.map((contact, i) => {
-                                    return (
-                                        <div>
-                                            <h3>{contact.contact}'s Information</h3>
-                                            <ul key={i}>
-                                                <li>{contact.title}</li>
-                                                <li>{contact.phoneNumber}</li>
-                                                <li>{contact.email}</li>
-                                            </ul>
-                                            <a onClick={(e) => this.props.removeContact(e, contact._id)}><i class="fas fa-trash-alt"></i></a>
-                                        </div>
-                                    )
-                                })
-                            }
+                            <div className="contact-container">
+                                {
+                                    this.props.contacts.map((contact, i) => {
+                                        return (
+                                            <div className="contact-flex">
+                                                <h3>{contact.contact}'s Information</h3>
+                                                <ul key={i}>
+                                                    <li>{contact.title}</li>
+                                                    <li>{contact.phoneNumber}</li>
+                                                    <li>{contact.email}</li>
+                                                </ul>
+                                                <a onClick={(e) => this.props.removeContact(e, contact._id)}><i className="trash-button fas fa-trash-alt"></i></a>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
                         </div>
                 }
             </ContactContainer>

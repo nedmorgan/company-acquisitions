@@ -17,7 +17,7 @@ export default class Companies extends Component {
         },
         redirectToCompanyPage: false,
         displayCompanyForm: false,
-        createCompany: {}
+        createdCompany: {}
     }
 
     componentDidMount() {
@@ -31,9 +31,8 @@ export default class Companies extends Component {
     }
 
     createCompany = () => {
-        axios.post('/api/v1/companies', {
-            company: this.state.company
-        }).then((res) => {
+        let payload = this.state.company
+        axios.post('/api/v1/companies', payload).then((res) => {
             this.setState({ redirectToCompanyPage: true, createdCompany: res.data })
         })
     }
@@ -65,7 +64,7 @@ export default class Companies extends Component {
                 {
                     this.state.displayCompanyForm ?
                         <div>
-                            <form>
+                            <form onSubmit={this.handleNewCompany}>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Name:</label>
                                     <input

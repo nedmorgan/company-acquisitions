@@ -1,4 +1,8 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+import { fadeInDown, fadeInUp } from 'react-animations'
+
+export const fadeUp = keyframes`${fadeInUp}`
+export const fadeDown = keyframes`${fadeInDown}`
 
 export const HomeContainer = styled.div`
 display: flex;
@@ -14,6 +18,7 @@ margin-top: 12vw;
 h1 {
     font-size: 4em;
     color: whitesmoke;
+    animation: 1.2s ${fadeDown};
 }
 
 .button {
@@ -26,6 +31,7 @@ h1 {
     border-radius: 5px;
     text-align: center;
     line-height: 45px;
+    animation: 1.2s ${fadeUp};
 }
 
 .button:hover {

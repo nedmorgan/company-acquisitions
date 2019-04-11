@@ -1,4 +1,8 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+import { fadeIn, fadeInDown } from 'react-animations'
+
+export const fade = keyframes`${fadeIn}`
+export const fadeDown = keyframes`${fadeInDown}`
 
 export const CompaniesContainer = styled.div`
 
@@ -7,6 +11,7 @@ h1 {
     color: whitesmoke;
     font-size: 4em;
     text-decoration: underline;
+    animation: 1s ${fadeDown};
 }
 
 h5 {
@@ -22,6 +27,7 @@ h5 {
 .card {
     width: 20rem;
     border-radius: 5px;
+    animation: 1s ${fade};
 }
 
 .card:hover {
@@ -40,12 +46,19 @@ a:hover {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    height: auto;
+}
+
+label {
+    color: whitesmoke;
 }
 
 .form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 4em;
+    animation: 1s ${fadeDown};
 }
 
 .new-company-form {

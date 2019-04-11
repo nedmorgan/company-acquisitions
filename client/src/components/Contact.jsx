@@ -89,11 +89,13 @@ export default class Contact extends Component {
                                             <div className="contact-flex">
                                                 <h3>{contact.contact}'s Information</h3>
                                                 <ul key={i}>
-                                                    <li>{contact.title}</li>
-                                                    <li>{contact.phoneNumber}</li>
-                                                    <li>{contact.email}</li>
+                                                    <li className="contact-title"><b>{contact.title}</b></li>
+                                                    <li><i className="list-icon fas fa-phone-square"></i>{contact.phoneNumber}</li>
+                                                    <li><i className="list-icon fas fa-envelope-square"></i>{contact.email}</li>
                                                 </ul>
-                                                <a onClick={(e) => this.props.removeContact(e, contact._id)}><i className="trash-button fas fa-trash-alt"></i></a>
+                                                <div className="trash-icon-container">
+                                                    <a onClick={(e) => this.props.removeContact(e, contact._id)}><i className="trash-icon fas fa-trash-alt"></i></a>
+                                                </div>
                                             </div>
                                         )
                                     })

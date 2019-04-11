@@ -59,7 +59,7 @@ export default class Companies extends Component {
         }
         return (
             <CompaniesContainer>
-                <h1>Companies<a onClick={this.toggleCompanyForm}><i class="fas fa-plus"></i></a></h1>
+                <h1>Companies<a onClick={this.toggleCompanyForm}><i className="add-link fas fa-plus"></i></a></h1>
                 {
                     this.state.displayCompanyForm ?
                         <div className="form-container">
@@ -114,8 +114,11 @@ export default class Companies extends Component {
                             {
                                 this.state.companies.map(company => {
                                     return (
-                                        <div className="company-container">
-                                            <h1><a href={`companies/${company._id}`}>{company.name}</a></h1>
+                                        <div class="card text-center">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{company.name}</h5>
+                                                <a href={`companies/${company._id}`} className="visit-button btn btn-primary">Visit Company</a>
+                                            </div>
                                         </div>
                                     )
                                 })

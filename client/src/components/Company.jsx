@@ -134,7 +134,7 @@ export default class Company extends Component {
                         </div>
                         :
                         <div>
-                            <h1>{this.state.company.name}<a onClick={this.toggleCompanyEditForm}><i class="fas fa-edit"></i></a></h1>
+                            <h1>{this.state.company.name}<a onClick={this.toggleCompanyEditForm}><i className="edit-company-icon fas fa-edit"></i></a></h1>
                             <h3><u><b>Status:</b></u> {this.state.company.status}</h3>
                             <p><u><b>Financial Situation:</b></u> {this.state.company.financialPerformance}</p>
                             <p><u><b>Company Profile:</b></u> {this.state.company.information}</p>
@@ -147,7 +147,9 @@ export default class Company extends Component {
                                 createContact={this.createContact} />
                         </div>
                 }
-                <button type="button" class="btn btn-danger" onClick={this.removeCompany}>Remove Company</button>
+                <div className="remove-container">
+                    <button type="button" className="remove-company btn btn-danger" onClick={this.removeCompany}>Remove Company</button>
+                </div>
             </CompanyContainer >
         )
     }

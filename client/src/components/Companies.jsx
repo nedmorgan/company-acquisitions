@@ -110,11 +110,11 @@ export default class Companies extends Component {
                             </form>
                         </div>
                         :
-                        <div>
+                        <div className="company-flex">
                             {
                                 this.state.companies.map(company => {
                                     return (
-                                        <div>
+                                        <div className="company-container">
                                             <h1><a href={`companies/${company._id}`}>{company.name}</a></h1>
                                         </div>
                                     )

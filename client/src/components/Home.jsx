@@ -7,7 +7,7 @@ export default class Home extends Component {
         return (
             <HomeContainer>
                 <div className="container">
-                    <h1>Business Acquisition Information</h1>
+                    <h1>Business Acquisition Portal</h1>
                     <Link to="/companies" className="button">Companies</Link>
                 </div>
             </HomeContainer>

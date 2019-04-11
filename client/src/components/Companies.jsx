@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { CompaniesContainer } from './styled_components/CompaniesStyles'
 import { Redirect } from 'react-router-dom'
-import Company from './Company'
 import axios from 'axios'
 
 export default class Companies extends Component {

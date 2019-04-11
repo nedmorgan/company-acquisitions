@@ -9,6 +9,16 @@ h1 {
     text-align: center;
 }
 
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-company-form {
+    width: 80vw;
+}
+
 li {
     list-style-type: none;
 }

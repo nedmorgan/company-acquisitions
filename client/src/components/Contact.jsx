@@ -28,8 +28,8 @@ export default class Contact extends Component {
         return (
             <div>
                 {
-                    this.props.displayContactEditForm ?
-                        <form>
+                    this.props.displayContactAddForm ?
+                        <form onSubmit={(e) => this.props.createContact(e, this.state.contact)}>
                             <div class="form-group">
                                 <label>Name:</label>
                                 <input
@@ -78,12 +78,12 @@ export default class Contact extends Component {
                         </form>
                         :
                         <div>
-                            <h2>Company Contact Information</h2>
+                            <h2>Company Contact Information <a onClick={(e) => this.props.toggleContactAddForm(e)}><i class="fas fa-plus"></i></a></h2>
                             {
                                 this.props.contacts.map((contact, i) => {
                                     return (
                                         <div>
-                                            <h3>{contact.contact}'s Information <a onClick={(e) => this.props.toggleContactEditForm(e)}><i class="fas fa-edit"></i></a></h3>
+                                            <h3>{contact.contact}'s Information</h3>
                                             <ul key={i}>
                                                 <li>{contact.title}</li>
                                                 <li>{contact.phoneNumber}</li>

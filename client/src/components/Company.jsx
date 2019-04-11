@@ -54,6 +54,12 @@ export default class Company extends Component {
         })
     }
 
+    toggleContactEditForm = () => {
+        this.setState((state, props) => {
+            return ({ displayContactAddForm: !state.displayContactAddForm, isUpdate: !state.isUpdate })
+        })
+    }
+
     handleChange = (e) => {
         const company = { ...this.state.company }
         company[e.target.name] = e.target.value
@@ -145,6 +151,7 @@ export default class Company extends Component {
                                 company={this.state.company}
                                 displayContactAddForm={this.state.displayContactAddForm}
                                 toggleContactAddForm={this.toggleContactAddForm}
+                                toggleContactEditForm={this.toggleContactEditForm}
                                 removeContact={this.removeContact}
                                 createContact={this.createContact}
                                 isUpdate={this.state.isUpdate} />

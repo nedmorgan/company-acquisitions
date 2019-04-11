@@ -96,7 +96,7 @@ export default class Contact extends Component {
                                         return (
                                             <div className="contact-flex">
                                                 <div className="title-flex">
-                                                    <h3>{contact.contact}'s Information</h3>
+                                                    <h3><a onClick={(e) => this.props.toggleContactEditForm(e)}><i class="edit-icon far fa-edit"></i></a>{contact.contact}'s Information</h3>
                                                 </div>
                                                 <ul key={i}>
                                                     <li className="contact-title"><b>{contact.title}</b></li>

@@ -55,8 +55,13 @@ li {
 }
 
 .trash-icon, 
-.back-icon {
+.back-icon,
+.edit-icon {
     font-size: 2vw;
+}
+
+.edit-icon {
+    margin-right: 1vw;
 }
 
 .back-icon {

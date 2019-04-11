@@ -19,8 +19,18 @@ h2 {
     font-size: 2vw;
 }
 
+li {
+    font-size: 1.5em;
+}
+
 .contact-title {
     font-size: 1.5em;
+}
+
+.title-flex {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .new-contact-form {
@@ -56,5 +66,9 @@ h2 {
 @media (max-width: 768px) {
     h3 {
         font-size: 1.25em;
+    }
+
+    li {
+        font-size: 1em;
     }
 `

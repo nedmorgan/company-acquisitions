@@ -88,7 +88,9 @@ export default class Contact extends Component {
                                     this.props.contacts.map((contact, i) => {
                                         return (
                                             <div className="contact-flex">
-                                                <h3>{contact.contact}'s Information</h3>
+                                                <div className="title-flex">
+                                                    <h3>{contact.contact}'s Information</h3>
+                                                </div>
                                                 <ul key={i}>
                                                     <li className="contact-title"><b>{contact.title}</b></li>
                                                     <li><i className="list-icon fas fa-phone-square"></i>{contact.phoneNumber}</li>

@@ -11,6 +11,7 @@ export default class Company extends Component {
         displayCompanyEditForm: false,
         displayContactAddForm: false,
         redirectToCompanies: false,
+        isUpdate: false,
     }
 
     componentDidMount() {
@@ -145,7 +146,8 @@ export default class Company extends Component {
                                 displayContactAddForm={this.state.displayContactAddForm}
                                 toggleContactAddForm={this.toggleContactAddForm}
                                 removeContact={this.removeContact}
-                                createContact={this.createContact} />
+                                createContact={this.createContact}
+                                isUpdate={this.state.isUpdate} />
                         </div>
                 }
                 <div className="remove-container">

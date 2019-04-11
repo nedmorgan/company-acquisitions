@@ -31,7 +31,14 @@ export default class Contact extends Component {
                 {
                     this.props.displayContactAddForm ?
                         <div className="form-container">
-                            <form className="new-contact-form" onSubmit={(e) => this.props.createContact(e, this.state.contact)}>
+                            <form
+                                className="new-contact-form"
+                                onSubmit={
+                                    this.props.isUpdate
+                                        ? (e) => this.props.updateContact(e, this.state.contact)
+                                        : (e) => this.props.createContact(e, this.state.contact)
+                                }
+                            >
                                 <a onClick={(e) => this.props.toggleContactAddForm(e)}><i class="back-icon fas fa-arrow-left"></i></a>
                                 <div class="form-group">
                                     <label>Name:</label>

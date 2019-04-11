@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import { CompanyContainer } from './styled_components/CompanyStyles'
 import axios from 'axios'
 import Contact from './Contact'
@@ -9,7 +10,7 @@ export default class Company extends Component {
         contacts: [],
         displayCompanyEditForm: false,
         displayContactEditForm: false,
-        edirectToCompanies: false,
+        redirectToCompanies: false,
     }
 
     componentDidMount() {
@@ -60,6 +61,9 @@ export default class Company extends Component {
     }
 
     render() {
+        if (this.state.redirectToCompanies) {
+            return (<Redirect to={`/companies`} />)
+        }
         return (
             <CompanyContainer>
                 {

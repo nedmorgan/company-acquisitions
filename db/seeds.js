@@ -8,19 +8,22 @@ const Contact = require("../models/Contact")
 const elon = new Contact({
     contact: 'Elon Musk',
     title: 'CEO',
-    phoneNumber: '404-867-5309'
+    phoneNumber: '404-867-5309',
+    email: 'elon@tesla.com'
 })
 
 const walter = new Contact({
     contact: 'Walter Morgan',
     title: 'CFO',
-    phoneNumber: '203-838-9693'
+    phoneNumber: '203-838-9693',
+    email: 'walter@backyarddogs.com'
 })
 
 const betsy = new Contact({
     contact: 'Betsy Morgan',
     title: 'CTO',
-    phoneNumber: '404-867-5309'
+    phoneNumber: '404-867-5309',
+    email: 'betsy@backyarddog.com'
 })
 
 const tesla = new Company({

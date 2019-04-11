@@ -9,6 +9,7 @@ export default class Contact extends Component {
             contact: '',
             title: '',
             phoneNumber: '',
+            email: '',
         },
         contactInfo: []
     }
@@ -62,11 +63,22 @@ export default class Contact extends Component {
                                     onChange={this.handleChange}
                                     value={this.state.contact.phoneNumber}></input>
                             </div>
+                            <div class="form-group">
+                                <label>E-mail:</label>
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    id="exampleInputPassword1"
+                                    placeholder="e-mail address"
+                                    name="email"
+                                    onChange={this.handleChange}
+                                    value={this.state.contact.email}></input>
+                            </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                         :
                         <div>
-                            <h2>Company Contact Information<a onClick={(e) => this.props.toggleContactEditForm(e)}><i class="fas fa-plus"></i></a></h2>
+                            <h2>Company Contact Information</h2>
                             {
                                 this.props.contacts.map((contact, i) => {
                                     return (
@@ -75,6 +87,7 @@ export default class Contact extends Component {
                                             <ul key={i}>
                                                 <li>{contact.title}</li>
                                                 <li>{contact.phoneNumber}</li>
+                                                <li>{contact.email}</li>
                                             </ul>
                                             <a onClick={(e) => this.props.removeContact(e, contact._id)}><i class="fas fa-trash-alt"></i></a>
                                         </div>

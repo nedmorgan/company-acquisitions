@@ -48,6 +48,8 @@ li {
 
 .contact-container {
     display: flex;
+    flex-wrap: wrap;
+    height: auto;
     justify-content: center;
     width: 80vw;
 }
@@ -56,7 +58,11 @@ li {
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 100%;
+    width: 40%;
+    background: rgba(200,200,200,.5);
+    margin: 1vw;
+    padding: 1vw;
+    border-radius: 5px;
 }
 
 .trash-icon-container {

@@ -125,8 +125,8 @@ export default class Contact extends Component {
                                                 </div>
                                                 <ul key={i}>
                                                     <li className="contact-title"><b>{contact.title}</b></li>
-                                                    <li><i className="list-icon fas fa-phone-square"></i>{contact.phoneNumber}</li>
-                                                    <li><i className="list-icon fas fa-envelope-square"></i>{contact.email}</li>
+                                                    <li><a href={`tel:${contact.phoneNumber}`} rel="noreferrer"><i className="list-icon fas fa-phone-square"></i></a>{contact.phoneNumber}</li>
+                                                    <li><a href={`mailto:${contact.email}`} rel="noreferrer"><i className="list-icon fas fa-envelope-square"></i></a>{contact.email}</li>
                                                 </ul>
                                                 <div className="trash-icon-container">
                                                     <a onClick={(e) => this.props.removeContact(e, contact._id)}><i className="trash-icon fas fa-trash-alt"></i></a>

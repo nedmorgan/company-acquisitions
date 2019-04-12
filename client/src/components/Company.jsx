@@ -155,7 +155,9 @@ export default class Company extends Component {
                         </div>
                         :
                         <div className="company-info">
-                            <h1>{this.state.company.name}<a onClick={this.toggleCompanyEditForm}><i className="edit-company-icon fas fa-edit"></i></a></h1>
+                            <div className="title-div">
+                                <h1>{this.state.company.name}<a onClick={this.toggleCompanyEditForm}><i className="edit-company-icon fas fa-edit"></i></a></h1>
+                            </div>
                             <h3><u><b>Status:</b></u> {this.state.company.status}</h3>
                             <p><u><b>Financial Situation:</b></u> {this.state.company.financialPerformance}</p>
                             <p><u><b>Company Profile:</b></u> {this.state.company.information}</p>

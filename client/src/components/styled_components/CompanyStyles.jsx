@@ -12,6 +12,11 @@ h1, h3, p, li {
 
 h1 {
     text-align: center;
+    text-decoration: underline;
+}
+
+.title-div {
+    width: 100%;
 }
 
 .edit-company-icon {

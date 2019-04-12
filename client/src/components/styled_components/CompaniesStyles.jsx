@@ -85,5 +85,8 @@ label {
     h1 {
         font-size: 2em;
     }
+    .back-icon {
+        font-size: 4vw;
+    }
 }
 `

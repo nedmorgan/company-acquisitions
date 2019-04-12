@@ -92,5 +92,8 @@ li {
     .remove-company {
         margin-bottom: 3vw;
     }
+    .back-icon {
+        font-size: 4vw;
+    }
 }
 `

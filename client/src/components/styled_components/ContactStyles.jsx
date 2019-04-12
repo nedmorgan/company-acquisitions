@@ -90,8 +90,23 @@ li {
         font-size: 1.25em;
     }
 
+    h2 {
+        font-size: 1.5em;
+        text-align: center;
+    }
+
     li {
         font-size: 1em;
+    }
+
+    .trash-icon, 
+    .back-icon,
+    .edit-icon {
+        font-size: 4vw;
+    }
+
+    .list-icon {
+        font-size: 3vw;
     }
 
     .contact-container {

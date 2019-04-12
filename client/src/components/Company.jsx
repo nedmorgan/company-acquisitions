@@ -126,7 +126,7 @@ export default class Company extends Component {
                                     <textarea
                                         className="form-control"
                                         id="exampleFormControlTextarea1"
-                                        rows="3"
+                                        rows="4"
                                         name="financialPerformance"
                                         onChange={this.handleChange}
                                         value={this.state.company.financialPerformance}></textarea>
@@ -136,7 +136,7 @@ export default class Company extends Component {
                                     <textarea
                                         className="form-control"
                                         id="exampleFormControlTextarea1"
-                                        rows="3"
+                                        rows="4"
                                         name="information"
                                         onChange={this.handleChange}
                                         value={this.state.company.information}></textarea>

@@ -43,6 +43,7 @@ h1 {
 @media (max-width: 768px) {
     h1 {
         font-size: 2em;
+        text-align: center;
     }
 
     .button {

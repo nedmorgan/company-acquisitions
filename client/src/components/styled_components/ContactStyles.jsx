@@ -120,5 +120,9 @@ li {
     flex-direction: column;
     align-items: center;
     }
+
+    .contact-flex {
+        width: 100%;
+    }
 }
 `

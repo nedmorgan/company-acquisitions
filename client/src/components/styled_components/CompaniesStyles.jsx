@@ -75,8 +75,15 @@ label {
     margin-bottom: 1vw;
 }
 
+.back-icon:hover,
+.add-link:hover {
+    color: #3366BB;
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
     h1 {
         font-size: 2em;
     }
+}
 `

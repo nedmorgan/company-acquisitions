@@ -24,6 +24,10 @@ h2 {
     font-size: 2vw;
 }
 
+.back-icon:hover {
+    color: #3366BB;
+}
+
 li {
     font-size: 1.5em;
 }
@@ -50,7 +54,7 @@ li {
 
 .contact-flex {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     width: 100%;
 }
@@ -58,7 +62,7 @@ li {
 .trash-icon-container {
     margin: 0 auto;
     border-top: 2px solid whitesmoke;
-    width: 25vw;
+    width: 15vw;
     display: flex;
     justify-content: center;
 }
@@ -94,6 +98,6 @@ li {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+    }
 }
 `

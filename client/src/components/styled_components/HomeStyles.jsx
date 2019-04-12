@@ -51,4 +51,5 @@ h1 {
         width: 105px;
         height: 35px;
     }
+}
 `

@@ -22,8 +22,10 @@ a {
     color: whitesmoke;
 }
 
-a:hover {
+a:hover,
+.back-icon:hover {
     color: #3366BB;
+    cursor: pointer;
 }
 
 label {
@@ -90,4 +92,5 @@ li {
     .remove-company {
         margin-bottom: 3vw;
     }
+}
 `

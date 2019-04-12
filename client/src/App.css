@@ -4,6 +4,8 @@
     url("./media/business.jpg");
   background-size: 100vw 100vh;
   min-height: 100vh;
+  background-position: center center;
+  background-size: cover;
 }
 
 @keyframes background-move {

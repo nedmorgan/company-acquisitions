@@ -2,11 +2,10 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.5),
     rgba(0, 0, 0, 0.5)),
     url("./media/business.jpg");
-  /* background-size: 100vw auto;
-  min-height: 100vh; */
+  background-size: 100vw auto;
+  min-height: 100vh;
   background-size: cover;
   background-position: center;
-  /* background-repeat: repeat; */
 }
 
 @keyframes background-move {

@@ -64,50 +64,50 @@ export default class Companies extends Component {
                     this.state.displayCompanyForm ?
                         <div className="form-container">
                             <form className="new-company-form" onSubmit={this.handleNewCompany}>
-                                <a onClick={this.toggleCompanyForm}><i class="back-icon fas fa-arrow-left"></i></a>
-                                <div class="form-group">
+                                <a onClick={this.toggleCompanyForm}><i className="back-icon fas fa-arrow-left"></i></a>
+                                <div className="form-group">
                                     <label for="exampleInputEmail1">Name:</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        className="form-control"
                                         id="exampleInputEmail1"
                                         name="name"
                                         onChange={this.handleChange}
                                         value={this.state.company.name}
                                         placeholder="Company Name"></input>
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label for="exampleInputPassword1">Status:</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        className="form-control"
                                         id="exampleInputPassword1"
                                         placeholder="Company Status"
                                         name="status"
                                         onChange={this.handleChange}
                                         value={this.state.company.status}></input>
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label for="exampleInputPassword1">Financial Performance:</label>
                                     <textarea
-                                        class="form-control"
+                                        className="form-control"
                                         id="exampleFormControlTextarea1"
                                         rows="3"
                                         name="financialPerformance"
                                         onChange={this.handleChange}
                                         value={this.state.company.financialPerformance}></textarea>
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label for="exampleInputPassword1">Information:</label>
                                     <textarea
-                                        class="form-control"
+                                        className="form-control"
                                         id="exampleFormControlTextarea1"
                                         rows="3"
                                         name="information"
                                         onChange={this.handleChange}
                                         value={this.state.company.information}></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" className="btn btn-primary">Submit</button>
                             </form>
                         </div>
                         :
@@ -115,9 +115,9 @@ export default class Companies extends Component {
                             {
                                 this.state.companies.map(company => {
                                     return (
-                                        <div class="card text-center">
-                                            <div class="card-body">
-                                                <h5 class="card-title">{company.name}</h5>
+                                        <div className="card text-center">
+                                            <div className="card-body">
+                                                <h5 className="card-title">{company.name}</h5>
                                                 <a href={`companies/${company._id}`} className="visit-button btn btn-primary">Visit Company</a>
                                             </div>
                                         </div>

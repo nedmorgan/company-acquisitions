@@ -87,4 +87,7 @@ li {
     h3 {
         font-size: 1.5em;
     }
+    .remove-company {
+        margin-bottom: 3vw;
+    }
 `

@@ -13,7 +13,7 @@ export default class Contact extends Component {
             email: '',
         },
         contactInfo: [],
-        isEditFormDisplayed: false
+        isUpdate: false,
     }
 
     componentDidMount() {
@@ -26,31 +26,43 @@ export default class Contact extends Component {
         this.setState({ contact })
     }
 
-    toggleEditForm = (e, contact) => {
+    toggleContactEditForm = (e, contact) => {
         e.preventDefault()
         this.setState((state, props) => {
             return {
-                isEditFormDisplayed: !state.isEditFormDisplayed,
+                isUpdate: true,
                 contact: contact
             }
         })
+        this.props.toggleEditForm(e)
+    }
+
+    toggleAddForm = (e) => {
+        e.preventDefault()
+        this.setState((state, props) => {
+            return {
+                isUpdate: false,
+                contact: {}
+            }
+        })
+        this.props.toggleEditForm(e)
     }
 
     render() {
         return (
             <ContactContainer>
                 {
-                    this.state.isEditFormDisplayed ?
+                    this.props.isEditFormDisplayed ?
                         <div className="form-container">
                             <form
                                 className="new-contact-form"
                                 onSubmit={
-                                    this.props.isUpdate
-                                        ? (e) => this.props.updateContact(e, this.state.contact)
+                                    this.state.isUpdate
+                                        ? (e) => this.props.updateContact(e, this.state.contact, this.state.contact._id)
                                         : (e) => this.props.createContact(e, this.state.contact)
                                 }
                             >
-                                <a onClick={(e) => this.toggleEditForm(e)}><i class="back-icon fas fa-arrow-left"></i></a>
+                                <a onClick={(e) => this.props.toggleEditForm(e)}><i className="back-icon fas fa-arrow-left"></i></a>
                                 <div className="form-group">
                                     <label>Name:</label>
                                     <input
@@ -84,7 +96,7 @@ export default class Contact extends Component {
                                         onChange={this.handleChange}
                                         value={this.state.contact.phoneNumber}></input>
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label>E-mail:</label>
                                     <input
                                         type="email"
@@ -99,15 +111,15 @@ export default class Contact extends Component {
                             </form>
                         </div>
                         :
-                        <div>
-                            <h2>Company Contact Information <a onClick={(e) => this.props.toggleContactAddForm(e)}><i className="fas fa-plus"></i></a></h2>
+                        <div className="contact">
+                            <h2>Company Contact Information <a onClick={(e) => this.toggleAddForm(e)}><i className="fas fa-plus"></i></a></h2>
                             <div className="contact-container">
                                 {
                                     this.props.contacts.map((contact, i) => {
                                         return (
                                             <div className="contact-flex">
                                                 <div className="title-flex">
-                                                    <h3><a onClick={(e) => this.toggleEditForm(e, contact)}><i class="edit-icon far fa-edit"></i></a>{contact.contact}'s Information</h3>
+                                                    <h3><a onClick={(e) => this.toggleContactEditForm(e, contact)}><i className="edit-icon far fa-edit"></i></a>{contact.contact}'s Information</h3>
                                                 </div>
                                                 <ul key={i}>
                                                     <li className="contact-title"><b>{contact.title}</b></li>

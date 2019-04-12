@@ -10,9 +10,8 @@ export default class Company extends Component {
         contacts: [],
         displayCompanyEditForm: false,
         displayContactAddForm: false,
+        isEditFormDisplayed: false,
         redirectToCompanies: false,
-        isUpdate: false,
-        value: ''
     }
 
     componentDidMount() {
@@ -49,17 +48,10 @@ export default class Company extends Component {
         })
     }
 
-    toggleContactAddForm = (e) => {
+    toggleEditForm = (e) => {
         e.preventDefault()
         this.setState((state, props) => {
-            return ({ displayContactAddForm: !state.displayContactAddForm })
-        })
-    }
-
-    toggleContactEditForm = (e) => {
-        e.preventDefault()
-        this.setState((state, props) => {
-            return ({ displayContactAddForm: !state.displayContactAddForm, isUpdate: !state.isUpdate })
+            return ({ isEditFormDisplayed: !state.isEditFormDisplayed })
         })
     }
 
@@ -69,11 +61,20 @@ export default class Company extends Component {
         this.setState({ company })
     }
 
+    updateContact = (e, payload, id) => {
+        let companyId = this.props.match.params.companyId
+        e.preventDefault()
+        axios.put(`/api/v1/companies/${companyId}/contacts/${id}`, payload)
+            .then(res => {
+                this.setState({ company: res.data, contacts: res.data['contacts'], isEditFormDisplayed: false })
+            })
+    }
+
     createContact = (e, payload) => {
         e.preventDefault()
         const companyId = this.props.match.params.companyId
         axios.post(`/api/v1/companies/${companyId}/contacts`, payload).then((res) => {
-            this.setState({ displayContactAddForm: false })
+            this.setState({ isEditFormDisplayed: false })
             this.getCompanyData()
         })
     }
@@ -97,50 +98,50 @@ export default class Company extends Component {
                     this.state.displayCompanyEditForm ?
                         <div className="form-container">
                             <form className="edit-company-form" onSubmit={this.updateCompany}>
-                                <a onClick={this.toggleCompanyEditForm}><i class="back-icon fas fa-arrow-left"></i></a>
-                                <div class="form-group">
+                                <a onClick={this.toggleCompanyEditForm}><i className="back-icon fas fa-arrow-left"></i></a>
+                                <div className="form-group">
                                     <label for="exampleInputEmail1">Name:</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        className="form-control"
                                         id="exampleInputEmail1"
                                         name="name"
                                         onChange={this.handleChange}
                                         value={this.state.company.name}
                                         placeholder="Company Name"></input>
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label for="exampleInputPassword1">Status:</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        className="form-control"
                                         id="exampleInputPassword1"
                                         placeholder="Company Status"
                                         name="status"
                                         onChange={this.handleChange}
                                         value={this.state.company.status}></input>
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label for="exampleInputPassword1">Financial Performance:</label>
                                     <textarea
-                                        class="form-control"
+                                        className="form-control"
                                         id="exampleFormControlTextarea1"
                                         rows="3"
                                         name="financialPerformance"
                                         onChange={this.handleChange}
                                         value={this.state.company.financialPerformance}></textarea>
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label for="exampleInputPassword1">Information:</label>
                                     <textarea
-                                        class="form-control"
+                                        className="form-control"
                                         id="exampleFormControlTextarea1"
                                         rows="3"
                                         name="information"
                                         onChange={this.handleChange}
                                         value={this.state.company.information}></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" className="btn btn-primary">Submit</button>
                             </form>
                         </div>
                         :
@@ -152,13 +153,13 @@ export default class Company extends Component {
                             <Contact
                                 contacts={this.state.contacts}
                                 company={this.state.company}
-                                displayContactAddForm={this.state.displayContactAddForm}
-                                toggleContactAddForm={this.toggleContactAddForm}
-                                toggleContactEditForm={this.toggleContactEditForm}
                                 removeContact={this.removeContact}
                                 createContact={this.createContact}
                                 isUpdate={this.state.isUpdate}
-                                value={this.state.value} />
+                                isEditFormDisplayed={this.state.isEditFormDisplayed}
+                                updateContact={this.updateContact}
+                                toggleEditForm={this.toggleEditForm}
+                            />
                         </div>
                 }
                 <div className="remove-container">

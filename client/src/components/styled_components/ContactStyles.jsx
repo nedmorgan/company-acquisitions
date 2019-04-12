@@ -4,6 +4,11 @@ import { fadeIn } from 'react-animations'
 export const fade = keyframes`${fadeIn}`
 
 export const ContactContainer = styled.div`
+
+.contact {
+    animation: 1s ${fade};
+}
+
 .form-container {
     display: flex;
     flex-direction: column;
@@ -52,6 +57,14 @@ li {
 
 .trash-icon-container {
     margin: 0 auto;
+    border-top: 2px solid whitesmoke;
+    width: 25vw;
+    display: flex;
+    justify-content: center;
+}
+
+.trash-icon {
+    margin-top: 1.5vw;
 }
 
 .trash-icon, 
@@ -76,4 +89,10 @@ li {
     li {
         font-size: 1em;
     }
+
+    .contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 `

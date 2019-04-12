@@ -23,12 +23,14 @@ export default class Companies extends Component {
         this.getCompaniesData()
     }
 
+    // Function ot obtain company data
     getCompaniesData = () => {
         axios.get('/api/v1/companies').then(response => {
             this.setState({ companies: response.data })
         })
     }
 
+    // Function to create a new company in the database
     createCompany = () => {
         let payload = this.state.company
         axios.post('/api/v1/companies', payload).then((res) => {
@@ -36,17 +38,20 @@ export default class Companies extends Component {
         })
     }
 
+    // Function to handle the input change in state
     handleChange = (e) => {
         const company = { ...this.state.company }
         company[e.target.name] = e.target.value
         this.setState({ company })
     }
 
+    // Function to prevent default action and create a new company in the database
     handleNewCompany = (e) => {
         e.preventDefault()
         this.createCompany()
     }
 
+    // Function to toggle the company form
     toggleCompanyForm = () => {
         this.setState((state, props) => {
             return ({ displayCompanyForm: !state.displayCompanyForm })

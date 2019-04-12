@@ -18,12 +18,14 @@ export default class Company extends Component {
         this.getCompanyData()
     }
 
+    // Function to get specific company data
     getCompanyData = () => {
         axios.get(`/api/v1/companies/${this.props.match.params.companyId}`).then(response => {
             this.setState({ company: response.data, contacts: response.data['contacts'] })
         })
     }
 
+    // Function to update a certain company in the database
     updateCompany = (e) => {
         let payload = this.state.company
         e.preventDefault()
@@ -33,6 +35,7 @@ export default class Company extends Component {
             })
     }
 
+    // Function to remove a company from the database
     removeCompany = () => {
         const companyId = this.props.match.params.companyId
         axios.delete(`/api/v1/companies/${companyId}`)
@@ -41,6 +44,7 @@ export default class Company extends Component {
             })
     }
 
+    // Function to toggle the company edit form
     toggleCompanyEditForm = (e) => {
         e.preventDefault()
         this.setState((state, props) => {
@@ -48,6 +52,7 @@ export default class Company extends Component {
         })
     }
 
+    // Function to toggle the contact edit form
     toggleEditForm = (e) => {
         e.preventDefault()
         this.setState((state, props) => {
@@ -55,12 +60,14 @@ export default class Company extends Component {
         })
     }
 
+    // Function to handle the input change from the form to state
     handleChange = (e) => {
         const company = { ...this.state.company }
         company[e.target.name] = e.target.value
         this.setState({ company })
     }
 
+    // Function to update a contact in the database
     updateContact = (e, payload, id) => {
         let companyId = this.props.match.params.companyId
         e.preventDefault()
@@ -70,6 +77,7 @@ export default class Company extends Component {
             })
     }
 
+    // Function to create a contact in the database
     createContact = (e, payload) => {
         e.preventDefault()
         const companyId = this.props.match.params.companyId
@@ -79,6 +87,7 @@ export default class Company extends Component {
         })
     }
 
+    // Function to remove a contact in the database
     removeContact = (e, id) => {
         e.preventDefault()
         const companyId = this.props.match.params.companyId

@@ -20,12 +20,14 @@ export default class Contact extends Component {
         this.setState({ contactInfo: this.props.contacts })
     }
 
+    // Function to handle the input change from the contact form into state
     handleChange = (e) => {
         const contact = { ...this.state.contact }
         contact[e.target.name] = e.target.value
         this.setState({ contact })
     }
 
+    // Function to show the contact edit form and set state to toggle the submit action of the form
     toggleContactEditForm = (e, contact) => {
         e.preventDefault()
         this.setState((state, props) => {
@@ -36,7 +38,7 @@ export default class Contact extends Component {
         })
         this.props.toggleEditForm(e)
     }
-
+    // Function to show the add contact form and set state to toggle the submit action of the form
     toggleAddForm = (e) => {
         e.preventDefault()
         this.setState((state, props) => {

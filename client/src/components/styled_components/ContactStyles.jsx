@@ -95,4 +95,5 @@ li {
     flex-direction: column;
     align-items: center;
 }
+}
 `

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { ContactContainer } from './styled_components/ContactStyles'
 
 export default class Contact extends Component {

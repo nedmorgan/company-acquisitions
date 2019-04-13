@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { ContactContainer } from './styled_components/ContactStyles'
+import ContactForm from './ContactForm'
 
 export default class Contact extends Component {
 
@@ -54,63 +55,13 @@ export default class Contact extends Component {
             <ContactContainer>
                 {
                     this.props.isEditFormDisplayed ?
-                        <div className="form-container">
-                            <form
-                                className="new-contact-form"
-                                onSubmit={
-                                    this.state.isUpdate
-                                        ? (e) => this.props.updateContact(e, this.state.contact, this.state.contact._id)
-                                        : (e) => this.props.createContact(e, this.state.contact)
-                                }
-                            >
-                                <a onClick={(e) => this.props.toggleEditForm(e)}><i className="back-icon fas fa-arrow-left"></i></a>
-                                <div className="form-group">
-                                    <label>Name:</label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="exampleInputEmail1"
-                                        name="contact"
-                                        onChange={this.handleChange}
-                                        value={this.state.contact.contact}
-                                        placeholder="Full Name"></input>
-                                </div>
-                                <div className="form-group">
-                                    <label>Title:</label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="exampleInputPassword1"
-                                        placeholder="Job Title"
-                                        name="title"
-                                        onChange={this.handleChange}
-                                        value={this.state.contact.title}></input>
-                                </div>
-                                <div className="form-group">
-                                    <label>Phone Number:</label>
-                                    <input
-                                        type="tel"
-                                        className="form-control"
-                                        id="exampleInputPassword1"
-                                        placeholder="Phone Number"
-                                        name="phoneNumber"
-                                        onChange={this.handleChange}
-                                        value={this.state.contact.phoneNumber}></input>
-                                </div>
-                                <div className="form-group">
-                                    <label>E-mail:</label>
-                                    <input
-                                        type="email"
-                                        className="form-control"
-                                        id="exampleInputPassword1"
-                                        placeholder="e-mail address"
-                                        name="email"
-                                        onChange={this.handleChange}
-                                        value={this.state.contact.email}></input>
-                                </div>
-                                <button type="submit" className="btn btn-primary">Submit</button>
-                            </form>
-                        </div>
+                        <ContactForm
+                            updateContact={this.props.updateContact}
+                            createContact={this.props.createContact}
+                            isUpdate={this.state.isUpdate}
+                            contact={this.state.contact}
+                            toggleEditForm={this.props.toggleEditForm}
+                            handleChange={this.handleChange} />
                         :
                         <div className="contact">
                             <h2>Company Contact Information <a onClick={(e) => this.toggleAddForm(e)}><i className="fas fa-plus"></i></a></h2>

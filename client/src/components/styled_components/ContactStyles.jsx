@@ -21,7 +21,7 @@ h2 {
 
 .list-icon {
     margin-right: 1vw;
-    font-size: 2vw;
+    font-size: 1.5vw;
 }
 
 .back-icon:hover {
@@ -29,7 +29,7 @@ h2 {
 }
 
 li {
-    font-size: 1.5em;
+    font-size: 1.25em;
 }
 
 .contact-title {
@@ -80,7 +80,7 @@ li {
 .trash-icon, 
 .back-icon,
 .edit-icon {
-    font-size: 2vw;
+    font-size: 1.5vw;
 }
 
 .edit-icon {
@@ -112,7 +112,7 @@ li {
     }
 
     .list-icon {
-        font-size: 3vw;
+        font-size: 4vw;
     }
 
     .contact-container {

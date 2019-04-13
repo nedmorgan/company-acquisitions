@@ -28,6 +28,7 @@ h5 {
     width: 20rem;
     border-radius: 5px;
     animation: 1s ${fade};
+    margin-top: 3vw;
 }
 
 .card:hover {

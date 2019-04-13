@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { CompaniesContainer } from './styled_components/CompaniesStyles'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+import CompaniesAddForm from './CompaniesAddForm'
 
 export default class Companies extends Component {
 
@@ -67,54 +68,11 @@ export default class Companies extends Component {
                 <h1>Companies<a onClick={this.toggleCompanyForm}><i className="add-link fas fa-plus"></i></a></h1>
                 {
                     this.state.displayCompanyForm ?
-                        <div className="form-container">
-                            <form className="new-company-form" onSubmit={this.handleNewCompany}>
-                                <a onClick={this.toggleCompanyForm}><i className="back-icon fas fa-arrow-left"></i></a>
-                                <div className="form-group">
-                                    <label for="exampleInputEmail1">Name:</label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="exampleInputEmail1"
-                                        name="name"
-                                        onChange={this.handleChange}
-                                        value={this.state.company.name}
-                                        placeholder="Company Name"></input>
-                                </div>
-                                <div className="form-group">
-                                    <label for="exampleInputPassword1">Status:</label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="exampleInputPassword1"
-                                        placeholder="Company Status"
-                                        name="status"
-                                        onChange={this.handleChange}
-                                        value={this.state.company.status}></input>
-                                </div>
-                                <div className="form-group">
-                                    <label for="exampleInputPassword1">Financial Performance:</label>
-                                    <textarea
-                                        className="form-control"
-                                        id="exampleFormControlTextarea1"
-                                        rows="3"
-                                        name="financialPerformance"
-                                        onChange={this.handleChange}
-                                        value={this.state.company.financialPerformance}></textarea>
-                                </div>
-                                <div className="form-group">
-                                    <label for="exampleInputPassword1">Information:</label>
-                                    <textarea
-                                        className="form-control"
-                                        id="exampleFormControlTextarea1"
-                                        rows="3"
-                                        name="information"
-                                        onChange={this.handleChange}
-                                        value={this.state.company.information}></textarea>
-                                </div>
-                                <button type="submit" className="btn btn-primary">Submit</button>
-                            </form>
-                        </div>
+                        <CompaniesAddForm
+                            handleNewCompany={this.handleNewCompany}
+                            toggleCompanyForm={this.toggleCompanyForm}
+                            handleChange={this.handleChange}
+                            company={this.state.company} />
                         :
                         <div className="company-flex">
                             {

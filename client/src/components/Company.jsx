@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import { CompanyContainer } from './styled_components/CompanyStyles'
 import axios from 'axios'
 import Contact from './Contact'
+import CompanyEditForm from './CompanyEditForm'
 
 export default class Company extends Component {
     state = {
@@ -105,54 +106,11 @@ export default class Company extends Component {
             <CompanyContainer>
                 {
                     this.state.displayCompanyEditForm ?
-                        <div className="form-container">
-                            <form className="edit-company-form" onSubmit={this.updateCompany}>
-                                <a onClick={this.toggleCompanyEditForm}><i className="back-icon fas fa-arrow-left"></i></a>
-                                <div className="form-group">
-                                    <label for="exampleInputEmail1">Name:</label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="exampleInputEmail1"
-                                        name="name"
-                                        onChange={this.handleChange}
-                                        value={this.state.company.name}
-                                        placeholder="Company Name"></input>
-                                </div>
-                                <div className="form-group">
-                                    <label for="exampleInputPassword1">Status:</label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="exampleInputPassword1"
-                                        placeholder="Company Status"
-                                        name="status"
-                                        onChange={this.handleChange}
-                                        value={this.state.company.status}></input>
-                                </div>
-                                <div className="form-group">
-                                    <label for="exampleInputPassword1">Financial Performance:</label>
-                                    <textarea
-                                        className="form-control"
-                                        id="exampleFormControlTextarea1"
-                                        rows="4"
-                                        name="financialPerformance"
-                                        onChange={this.handleChange}
-                                        value={this.state.company.financialPerformance}></textarea>
-                                </div>
-                                <div className="form-group">
-                                    <label for="exampleInputPassword1">Information:</label>
-                                    <textarea
-                                        className="form-control"
-                                        id="exampleFormControlTextarea1"
-                                        rows="4"
-                                        name="information"
-                                        onChange={this.handleChange}
-                                        value={this.state.company.information}></textarea>
-                                </div>
-                                <button type="submit" className="btn btn-primary">Submit</button>
-                            </form>
-                        </div>
+                        <CompanyEditForm
+                            updateCompany={this.updateCompany}
+                            toggleCompanyEditForm={this.toggleCompanyEditForm}
+                            handleChange={this.handleChange}
+                            company={this.state.company} />
                         :
                         <div className="company-info">
                             <div className="title-div">

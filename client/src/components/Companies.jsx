@@ -33,10 +33,33 @@ export default class Companies extends Component {
 
     // Function to create a new company in the database
     createCompany = () => {
+        if (this.checkValue()) {
+            return
+        }
+        if (this.checkCompany()) {
+            return
+        }
         let payload = this.state.company
         axios.post('/api/v1/companies', payload).then((res) => {
             this.setState({ redirectToCompanyPage: true, createdCompany: res.data })
         })
+    }
+
+    checkCompany = () => {
+        let name = this.state.company.name.toLowerCase()
+        let filteredCompany = this.state.companies.filter(company => name == company.name.toLowerCase())
+        if (filteredCompany.length > 0) {
+            alert("Company already exists")
+            return true
+        }
+    }
+
+    checkValue = () => {
+        let nameValue = this.state.company.name
+        if (nameValue === '') {
+            alert('Please enter name value for company')
+            return true
+        }
     }
 
     // Function to handle the input change in state

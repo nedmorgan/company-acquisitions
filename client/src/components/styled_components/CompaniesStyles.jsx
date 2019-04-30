@@ -63,7 +63,9 @@ label {
 }
 
 .new-company-form {
-    width: 80vw;
+    /* width: 80vw; */
+    max-width: 600px;
+    width: 100%;
 }
 
 .back-arrow {

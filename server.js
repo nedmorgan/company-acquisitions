@@ -4,6 +4,7 @@ const app = express()
 const routes = require('./routes/index')
 
 app.use(logger("dev"))
+
 app.use(
   express.urlencoded({
     extended: true
